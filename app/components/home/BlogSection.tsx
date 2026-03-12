@@ -10,7 +10,7 @@ const FEATURED_BLOGS = [
         date: "March 15, 2024",
         author: "Jane Doe",
         category: "Investment",
-        imageUrl: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800&q=80"
+        imageUrl: "/assets/kigali_c_centre.avif"
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const FEATURED_BLOGS = [
         date: "March 02, 2024",
         author: "John Smith",
         category: "Guides",
-        imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+        imageUrl: "/assets/m_plaza.jpg"
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const FEATURED_BLOGS = [
         date: "February 20, 2024",
         author: "Alice Johnson",
         category: "Lifestyle",
-        imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+        imageUrl: "/assets/sky-view.jpg"
     }
 ];
 

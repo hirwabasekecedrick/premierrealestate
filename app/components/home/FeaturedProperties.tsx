@@ -13,7 +13,7 @@ const DUMMY_PROPERTIES: PropertyProps[] = [
         sqft: 4500,
         type: "Villa",
         status: "For Sale",
-        imageUrl: "https://images.unsplash.com/photo-1613490900233-141c5560ddaf?w=800&q=80"
+        imageUrl: "/assets/front-pic-1.png"
     },
     {
         id: "2",
@@ -25,7 +25,7 @@ const DUMMY_PROPERTIES: PropertyProps[] = [
         sqft: 2800,
         type: "Apartment",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+        imageUrl: "/assets/front.png"
     },
     {
         id: "3",
@@ -37,7 +37,7 @@ const DUMMY_PROPERTIES: PropertyProps[] = [
         sqft: 3200,
         type: "House",
         status: "For Sale",
-        imageUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+        imageUrl: "/assets/nice.png"
     }
 ];
 

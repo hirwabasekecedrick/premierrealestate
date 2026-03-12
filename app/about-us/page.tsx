@@ -21,7 +21,7 @@ export default function AboutUsPage() {
 
                     <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
                         <Image
-                            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            src="/assets/Front-image.png"
                             alt="Exceptional Real Estate Service"
                             fill
                             className="object-cover"

@@ -16,7 +16,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 120,
         type: "Apartment",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/front-pic-1.png",
         isFeatured: true,
     },
     {
@@ -29,7 +29,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 450,
         type: "Villa",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/nice.png",
         isFeatured: false,
     },
     {
@@ -42,7 +42,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 65,
         type: "Apartment",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/kagugu.png",
         isFeatured: false,
     },
     {
@@ -55,7 +55,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 300,
         type: "House",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/front.png",
         isFeatured: true,
     },
     {
@@ -68,7 +68,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 350,
         type: "Apartment",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/penthouse.jpg",
         isFeatured: false,
     },
     {
@@ -81,7 +81,7 @@ const RENT_PROPERTIES: PropertyProps[] = [
         sqft: 150,
         type: "Commercial",
         status: "For Rent",
-        imageUrl: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/m_plaza.jpg",
         isFeatured: false,
     }
 ];

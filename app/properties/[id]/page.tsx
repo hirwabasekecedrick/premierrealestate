@@ -13,17 +13,17 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
         sqft: 4500,
         type: "Villa",
         status: "For Sale",
-        description: "Experience unparalleled luxury in this stunning modern villa located in the heart of Nyarutarama. Featuring expansive floor-to-ceiling windows, a private infinity pool, and a state-of-the-art chef's kitchen. The master suite offers panoramic views of Kigali's rolling hills.",
+        description: "Experience unparalleled luxury in this stunning modern villa located in the heart of Nyarutarama. Featuring expansive floor-to-ceiling windows, a private pool, and a state-of-the-art chef's kitchen. The master suite offers panoramic views of Kigali's rolling hills.",
         amenities: [
-            "Infinity Pool", "Smart Home Technology", "Gated Security 24/7",
+            "Pool", "Smart Home Technology", "Gated Security 24/7",
             "Chef's Kitchen", "Home Theater", "Wine Cellar",
             "Landscaped Garden", "Double Garage"
         ],
         agent: {
-            name: "Elise Kamanzi",
+            name: "Sales",
             role: "Senior Luxury Agent",
-            phone: "+250 788 000 001",
-            email: "elise@premierrealestate.co.rw",
+            phone: "+250 787 058 133",
+            email: "info@premierrealestate.co.rw",
             avatar: "/Iribagiza-Rose.jpg" // Using an existing local asset for avatar
         },
         images: [
@@ -41,9 +41,19 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
     return (
         <div className="bg-background min-h-screen">
 
-            {/* Image Gallery Header (Carousel) */}
+            {/* Top Section: Carousel & Contact Form */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-                <PropertyImageCarousel images={property.images} />
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    {/* Image Gallery Header (Carousel) */}
+                    <div className="lg:col-span-2">
+                        <PropertyImageCarousel images={property.images} />
+                    </div>
+
+                    {/* Sidebar - Request Info Form (Top for Desktop) */}
+                    <div className="lg:col-span-1 h-full">
+                        <PropertyContactForm />
+                    </div>
+                </div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -121,12 +131,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
 
                     </div>
 
-                    {/* Sidebar - Request Info Form */}
+                    {/* Sidebar - Safety Tip */}
                     <div className="lg:col-span-1">
-                        <PropertyContactForm />
-
-                        {/* Safety Tip */}
-                        <div className="mt-8 bg-gray-50 border border-gray-100 rounded-3xl p-6 text-sm text-muted leading-relaxed shadow-sm">
+                        <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 text-sm text-muted leading-relaxed shadow-sm">
                             <strong className="text-secondary font-semibold block mb-2">Safety Tip:</strong>
                             Never transfer money before verifying the property and signing a legal agreement. Our agents are verified professionals who will walk you through the process securely.
                         </div>

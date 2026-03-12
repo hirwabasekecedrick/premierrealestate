@@ -48,7 +48,7 @@ export function EngagingContent() {
                         <div className="grid grid-cols-2 gap-4 h-[600px]">
                             <div className="col-span-1 row-span-2 relative rounded-3xl overflow-hidden mt-12 shadow-2xl">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+                                    src="/assets/Dinning-kitchen.png"
                                     alt="Modern Home Interior"
                                     fill
                                     className="object-cover"
@@ -56,7 +56,7 @@ export function EngagingContent() {
                             </div>
                             <div className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden shadow-2xl">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1628611225249-6c117ebae745?w=600&q=80"
+                                    src="/assets/front-pic-1.png"
                                     alt="Happy Couple with Keys"
                                     fill
                                     className="object-cover"

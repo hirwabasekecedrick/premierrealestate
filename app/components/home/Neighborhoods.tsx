@@ -6,31 +6,31 @@ const NEIGHBORHOODS = [
     {
         name: "Nyarutarama",
         listings: 45,
-        imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+        imageUrl: "/assets/kagugu.png",
         span: "col-span-1 md:col-span-2 row-span-2",
     },
     {
         name: "Kacyiru",
         listings: 32,
-        imageUrl: "https://images.unsplash.com/photo-1519451253011-b0db4918e7d2?w=800&q=80",
+        imageUrl: "/assets/nice.png",
         span: "col-span-1 row-span-1",
     },
     {
         name: "Kiyovu",
         listings: 28,
-        imageUrl: "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80",
+        imageUrl: "/assets/kiyovu.png",
         span: "col-span-1 row-span-1",
     },
     {
         name: "Kimihurura",
         listings: 56,
-        imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+        imageUrl: "/assets/sky-view.jpg",
         span: "col-span-1 row-span-1",
     },
     {
         name: "Gacuriro",
         listings: 24,
-        imageUrl: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=800&q=80",
+        imageUrl: "/assets/front.png",
         span: "col-span-1 row-span-1",
     },
 ];
