@@ -36,7 +36,7 @@ export default function BlogSection() {
     return (
         <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 animate-fade-in-up">
                     <div className="max-w-2xl">
                         <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-3">Resources & News</h2>
                         <h3 className="text-3xl md:text-5xl font-heading font-bold text-secondary leading-tight">
@@ -54,8 +54,12 @@ export default function BlogSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {FEATURED_BLOGS.map((post) => (
-                        <article key={post.id} className="bg-white rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all group flex flex-col">
+                    {FEATURED_BLOGS.map((post, idx) => (
+                        <article
+                            key={post.id}
+                            className="bg-white rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all group flex flex-col animate-fade-in-up"
+                            style={{ animationDelay: `${(idx + 1) * 200}ms` }}
+                        >
                             <div className="relative h-64 overflow-hidden">
                                 <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                                     {post.category}

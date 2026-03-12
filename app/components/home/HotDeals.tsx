@@ -50,20 +50,20 @@ export function HotDeals() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                     <div className="max-w-2xl">
-                        <div className="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-2 rounded-full font-bold text-sm mb-6 animate-pulse">
-                            <Flame size={18} fill="currentColor" /> HOT DEALS OF THE WEEK
+                        <div className="inline-flex items-center gap-2 bg-red-100 text-red-600 px-5 py-2 rounded-full font-bold text-xs mb-8 animate-pulse shadow-sm">
+                            <Flame size={16} fill="currentColor" /> HOT DEALS OF THE WEEK
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-secondary mb-4 leading-tight">
+                        <h2 className="text-4xl md:text-6xl font-heading font-medium text-secondary mb-6 leading-tight">
                             Exclusive Offers You <br />
                             <span className="text-primary italic">Can't Miss</span>
                         </h2>
-                        <p className="text-muted text-lg">
+                        <p className="text-muted text-lg max-w-xl">
                             Grab these high-value properties at significantly reduced prices. These deals are updated weekly and move fast.
                         </p>
                     </div>
-                    <Link href="/properties" className="group flex items-center gap-2 text-secondary font-bold hover:text-primary transition-colors pb-2 border-b-2 border-secondary hover:border-primary">
+                    <Link href="/buy" className="group flex items-center gap-3 text-secondary font-bold hover:text-primary transition-colors pb-2 border-b-2 border-secondary hover:border-primary">
                         View All Deals
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -72,24 +72,26 @@ export function HotDeals() {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {HOT_DEALS.map((deal) => (
-                        <div key={deal.id} className="bg-white rounded-[2rem] overflow-hidden border border-border shadow-sm hover:shadow-2xl transition-all duration-500 group">
+                        <div key={deal.id} className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2">
                             {/* Image Section */}
-                            <div className="relative h-72 overflow-hidden">
-                                <Image
-                                    src={deal.imageUrl}
-                                    alt={deal.title}
-                                    fill
-                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                                <div className="absolute top-4 left-4 z-10">
-                                    <span className="bg-red-600 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg">
-                                        {deal.discount}
-                                    </span>
-                                </div>
-                                <div className="absolute top-4 right-4 z-10">
-                                    <span className="bg-white/90 backdrop-blur-md text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm">
-                                        {deal.deadline}
-                                    </span>
+                            <div className="relative h-72 overflow-hidden p-4">
+                                <div className="relative h-full w-full rounded-[2rem] overflow-hidden">
+                                    <Image
+                                        src={deal.imageUrl}
+                                        alt={deal.title}
+                                        fill
+                                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    />
+                                    <div className="absolute top-4 left-4 z-10">
+                                        <span className="bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg tracking-wider uppercase">
+                                            {deal.discount}
+                                        </span>
+                                    </div>
+                                    <div className="absolute top-4 right-4 z-10">
+                                        <span className="bg-white/90 backdrop-blur-md text-secondary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter shadow-sm">
+                                            {deal.deadline}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
 

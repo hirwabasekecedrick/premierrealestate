@@ -1,85 +1,97 @@
-import { CheckCircle2, TrendingUp, Key, Users } from "lucide-react";
+"use client";
+
+import { CheckCircle2, TrendingUp, Key, Users, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function EngagingContent() {
     return (
-        <section className="py-24 bg-secondary text-white relative overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/3 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+        <section className="py-32 bg-white relative overflow-hidden">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Text Content */}
-                    <div>
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-                            Why Choose <span className="text-primary tracking-wide">Premier Real Estate?</span>
+                {/* Header Row split like the reference */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 mb-20 animate-fade-in-up">
+                    <div className="max-w-2xl">
+                        <h2 className="text-4xl md:text-6xl font-heading font-medium text-secondary leading-tight">
+                            Your primary home might <br className="hidden md:block" />
+                            begin to feel left out.
                         </h2>
-                        <p className="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed">
-                            We provide a seamless, transparent, and highly professional real estate service. Whether you're buying your first home or expanding your investment portfolio, our experts are here to guide you every step of the way.
+                    </div>
+                    <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}>
+                        <div className="relative w-32 h-16 rounded-full overflow-hidden shadow-lg border-2 border-white group-hover:scale-110 transition-transform duration-500">
+                            <Image
+                                src="/assets/Dinning-kitchen.png"
+                                alt="Video teaser"
+                                fill
+                                className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                                <Play size={20} className="text-white fill-white" />
+                            </div>
+                        </div>
+                        <p className="max-w-[200px] text-sm text-secondary/60 font-medium group-hover:text-primary transition-colors">
+                            Each listing offers unique features, exceptional quality, and prime locations
                         </p>
+                    </div>
+                </div>
 
-                        <div className="space-y-6">
-                            {[
-                                { icon: <CheckCircle2 className="text-primary" size={24} />, title: "Premium Exclusive Listings", desc: "Access to the most luxurious and sought-after properties in Kigali before they hit the market." },
-                                { icon: <TrendingUp className="text-primary" size={24} />, title: "Market Data & Analytics", desc: "Make informed decisions with our comprehensive property valuation and investment ROI analysis." },
-                                { icon: <Key className="text-primary" size={24} />, title: "Hassle-Free Transactions", desc: "Our legal and financial teams ensure airtight contracts and a secure passing of the keys." },
-                            ].map((item, index) => (
-                                <div key={index} className="flex items-start gap-4">
-                                    <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm shadow-sm flex-shrink-0">
-                                        {item.icon}
-                                    </div>
-                                    <div>
-                                        <h3 className="font-heading font-semibold text-xl mb-1">{item.title}</h3>
-                                        <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                                    </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                    {/* Big Image Card */}
+                    <div className="lg:col-span-6 relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl group animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                        <Image
+                            src="/assets/front-pic-1.png"
+                            alt="Modern Architecture"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                        />
+                        <div className="absolute bottom-6 left-6 flex -space-x-3">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-lg relative">
+                                    <Image src={`/assets/${i === 1 ? 'kagugu.png' : i === 2 ? 'nice.png' : 'front.png'}`} alt="avatar" fill className="object-cover" />
                                 </div>
                             ))}
                         </div>
-
-                        <button className="mt-12 bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-full font-medium transition-transform hover:-translate-y-1 shadow-lg shadow-primary/30">
-                            Speak with an Expert
-                        </button>
                     </div>
 
-                    {/* Image & Stats Grid */}
-                    <div className="relative">
-                        <div className="grid grid-cols-2 gap-4 h-[600px]">
-                            <div className="col-span-1 row-span-2 relative rounded-3xl overflow-hidden mt-12 shadow-2xl">
-                                <Image
-                                    src="/assets/Dinning-kitchen.png"
-                                    alt="Modern Home Interior"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src="/assets/front-pic-1.png"
-                                    alt="Happy Couple with Keys"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
+                    {/* Small Info Card 1 */}
+                    <div className="lg:col-span-3 bg-gray-50 rounded-[3rem] p-10 flex flex-col justify-center items-center text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                        <h3 className="text-3xl font-heading font-bold text-secondary mb-6 leading-tight">
+                            Big things can happen in small spaces.
+                        </h3>
+                        <p className="text-secondary/60 text-sm mb-10 leading-relaxed font-medium">
+                            With thoughtful design and smart organization, you can maximize every inch, making room for creativity
+                        </p>
+                        <Link href="/buy" className="px-8 py-3 rounded-2xl border border-border bg-white text-secondary text-sm font-bold shadow-sm hover:bg-white hover:shadow-md transition-all active:scale-95">
+                            Details
+                        </Link>
+                    </div>
 
-                            {/* Stat Box overlay */}
-                            <div className="col-span-1 row-span-1 bg-white rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-xl border border-white/20">
-                                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
-                                    <Users size={32} />
-                                </div>
-                                <h4 className="font-heading font-bold text-4xl text-secondary mb-2 tracking-tight">
-                                    1,500<span className="text-primary">+</span>
-                                </h4>
-                                <p className="text-muted font-medium uppercase tracking-wider text-sm">
-                                    Happy Families
-                                </p>
-                                <p className="text-muted/60 text-xs mt-2">Found their dream home with us.</p>
+                    {/* Small Info Card 2 */}
+                    <div className="lg:col-span-3 overflow-hidden rounded-[3rem] shadow-xl border border-border group animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+                        <div className="relative h-1/2 w-full">
+                            <Image src="/assets/nice.png" alt="Property" fill className="object-cover" />
+                        </div>
+                        <div className="h-1/2 p-8 bg-white flex flex-col justify-between">
+                            <div>
+                                <p className="text-secondary/60 text-[13px] font-bold mb-2">Pricing Start at FRW 256K</p>
                             </div>
-
+                            <Link href="/buy" className="w-full bg-secondary hover:bg-secondary-light text-white flex items-center justify-center gap-2 py-4 rounded-full font-bold transition-all group-hover:gap-4 active:scale-95">
+                                Explore Properties
+                                <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center">→</span>
+                            </Link>
                         </div>
                     </div>
+                </div>
 
+                <div className="mt-16 flex flex-col items-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+                    <p className="text-center text-secondary/60 font-medium max-w-xl text-sm mb-10">
+                        Whether it's creating a cozy corner for relaxation or transforming a small area into a workspace
+                    </p>
+                    <div className="flex gap-4">
+                        <Link href="/buy" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all active:scale-90">←</Link>
+                        <Link href="/buy" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all active:scale-90">→</Link>
+                    </div>
                 </div>
             </div>
         </section>
