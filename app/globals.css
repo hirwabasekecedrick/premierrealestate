@@ -15,6 +15,9 @@
 
   --font-sans: var(--font-inter);
   --font-heading: var(--font-outfit);
+
+  --radius-huge: 3rem;
+  --radius-large: 2rem;
 }
 
 @layer base {

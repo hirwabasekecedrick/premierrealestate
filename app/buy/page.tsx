@@ -128,7 +128,7 @@ function BuyPageContent() {
   }, [searchQuery, propertyType, sortBy]);
 
   return (
-    <div className="pb-20 bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <div
         className="relative py-16 text-center text-white mb-10 px-4 overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/b.png')" }}

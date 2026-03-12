@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Bed, Bath, Square, Heart } from "lucide-react";
+import { MapPin, Bed, Bath, Square, ArrowUpRight } from "lucide-react";
 
 export interface PropertyProps {
     id: string;
@@ -20,75 +20,70 @@ export function PropertyCard({
     id, title, price, location, beds, baths, sqft, type = "Villa", status = "For Sale", imageUrl
 }: PropertyProps) {
     return (
-        <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border flex flex-col h-full transform hover:-translate-y-1">
+        <div className="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2">
             {/* Image Container */}
-            <div className="relative h-64 w-full overflow-hidden">
-                <Image
-                    src={imageUrl}
-                    alt={title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+            <div className="relative h-72 w-full overflow-hidden p-4">
+                <div className="relative h-full w-full rounded-[2rem] overflow-hidden">
+                    <Image
+                        src={imageUrl}
+                        alt={title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
 
-                {/* Badges */}
-                <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                        {status}
-                    </span>
-                    <div className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
-                        {type}
+                    {/* Badges */}
+                    <div className="absolute top-4 left-4 flex gap-2">
+                        <span className="bg-white/90 backdrop-blur-md text-secondary text-[10px] font-black px-4 py-1.5 rounded-full shadow-sm uppercase tracking-wider">
+                            {status}
+                        </span>
                     </div>
-                </div>
 
-
-                {/* Quick View Overlay */}
-                <div className="absolute inset-0 bg-secondary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Link href={`/properties/${id}`} className="bg-white text-secondary font-medium px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                        Quick View
-                    </Link>
                 </div>
             </div>
 
             {/* Content */}
-            <div className="p-6 flex flex-col flex-grow">
-                <div className="mb-2 font-heading text-2xl font-bold text-primary">
-                    {price}
+            <div className="p-8 pt-2 flex flex-col flex-grow">
+                <div className="flex items-center gap-1.5 text-primary text-[11px] font-black uppercase tracking-[0.1em] mb-3">
+                    <MapPin size={14} className="mb-0.5" />
+                    {location}
                 </div>
-                <h3 className="font-heading text-xl font-semibold text-secondary mb-1 line-clamp-1">
+
+                <h3 className="font-heading text-2xl font-bold text-secondary mb-4 line-clamp-1 group-hover:text-primary transition-colors">
                     {title}
                 </h3>
-                <p className="text-muted flex items-center gap-1.5 mb-4 text-sm">
-                    <MapPin size={16} />
-                    {location}
-                </p>
 
-                {/* Divider */}
-                <div className="h-px w-full bg-border mb-4"></div>
-
-                {/* Specs */}
-                <div className="flex items-center justify-between text-muted text-sm mt-auto mb-6">
-                    <div className="flex items-center gap-1.5">
-                        <Bed size={18} className="text-secondary/70" />
-                        <span>{beds} Beds</span>
+                {/* Specs with small pill backgrounds */}
+                <div className="flex items-center gap-4 mb-6">
+                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-full text-[12px] font-bold text-secondary/70">
+                        <Bed size={14} />
+                        <span>{beds}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
-                        <Bath size={18} className="text-secondary/70" />
-                        <span>{baths} Baths</span>
+                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-full text-[12px] font-bold text-secondary/70">
+                        <Bath size={14} />
+                        <span>{baths}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
-                        <Square size={18} className="text-secondary/70" />
-                        <span>{sqft} sqft</span>
+                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-full text-[12px] font-bold text-secondary/70">
+                        <Square size={14} />
+                        <span>{sqft} sm</span>
                     </div>
                 </div>
 
-                {/* Action Button */}
-                <Link
-                    href={`/properties/${id}`}
-                    className="w-full text-center block bg-secondary/5 hover:bg-secondary text-secondary hover:text-white border border-secondary/10 py-3 rounded-xl font-medium transition-colors"
-                >
-                    View Details
-                </Link>
+                {/* Price and Action */}
+                <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
+                    <div>
+                        <p className="text-[10px] text-muted font-bold uppercase tracking-wider mb-0.5">Price</p>
+                        <div className="text-2xl font-black text-secondary">
+                            {price}
+                        </div>
+                    </div>
+                    <Link
+                        href={`/properties/${id}`}
+                        className="w-12 h-12 bg-secondary text-white rounded-2xl flex items-center justify-center hover:bg-primary transition-all shadow-lg active:scale-90"
+                    >
+                        <ArrowUpRight size={20} />
+                    </Link>
+                </div>
             </div>
         </div>
     );

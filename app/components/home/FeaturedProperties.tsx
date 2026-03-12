@@ -47,16 +47,17 @@ export function FeaturedProperties() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 animate-fade-in-up">
                     <div className="max-w-2xl">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
-                            Featured Properties
+                        <h2 className="text-4xl md:text-6xl font-heading font-medium text-secondary mb-6 leading-tight">
+                            Handpicked <br />
+                            <span className="text-primary italic">Featured Properties</span>
                         </h2>
-                        <p className="text-muted text-lg">
+                        <p className="text-muted text-lg max-w-xl">
                             Explore our handpicked selection of premium properties. From luxury villas to modern city apartments, find your perfect match.
                         </p>
                     </div>
-                    <Link href="/properties" className="hidden md:flex items-center gap-2 text-primary font-medium hover:text-primary-hover transition-colors group">
+                    <Link href="/buy" className="hidden md:flex items-center gap-3 text-secondary font-bold hover:text-primary transition-colors pb-2 border-b-2 border-secondary hover:border-primary group">
                         View All Properties
                         <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -64,14 +65,16 @@ export function FeaturedProperties() {
 
                 {/* Listings Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {DUMMY_PROPERTIES.map((property) => (
-                        <PropertyCard key={property.id} {...property} />
+                    {DUMMY_PROPERTIES.map((property, idx) => (
+                        <div key={property.id} className="animate-fade-in-up" style={{ animationDelay: `${(idx + 1) * 200}ms` }}>
+                            <PropertyCard {...property} />
+                        </div>
                     ))}
                 </div>
 
                 {/* Mobile View All Button */}
                 <div className="mt-10 md:hidden flex justify-center">
-                    <Link href="/properties" className="flex items-center gap-2 bg-primary/10 text-primary font-medium hover:bg-primary/20 px-6 py-3 rounded-xl transition-colors">
+                    <Link href="/buy" className="flex items-center gap-2 bg-primary/10 text-primary font-medium hover:bg-primary/20 px-6 py-3 rounded-xl transition-colors">
                         View All Properties
                         <ArrowRight size={20} />
                     </Link>

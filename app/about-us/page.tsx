@@ -6,12 +6,13 @@ export default function AboutUsPage() {
         <div className="pb-20 bg-background min-h-screen">
 
             {/* Header Overlay */}
-            <div className="relative bg-secondary py-20 text-center text-white mb-20 px-4 overflow-hidden">
-                <div className="absolute inset-0 z-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('/assets/')" }}></div>
-                <div className="relative z-10 max-w-3xl mx-auto">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 drop-shadow-lg">About Premier Real Estate</h1>
-                    <p className="text-lg text-gray-200">
-                        We are a boutique real estate firm in Kigali, Rwanda specializing in residential and commercial rentals and sales.
+            <div className="relative bg-secondary py-24 text-center text-white mb-20 px-4 overflow-hidden min-h-[400px] flex items-center justify-center">
+                <div className="absolute inset-0 z-0 bg-cover bg-center opacity-40 grayscale hover:grayscale-0 transition-all duration-1000" style={{ backgroundImage: "url('/assets/m_plaza.jpg')" }}></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary/40"></div>
+                <div className="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
+                    <h1 className="text-5xl md:text-7xl font-heading font-medium mb-8 tracking-tight">About Premier Real Estate</h1>
+                    <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto font-medium">
+                        We are a boutique real estate firm in Kigali, Rwanda specializing in high-end residential and commercial estates.
                     </p>
                 </div>
             </div>
@@ -110,7 +111,7 @@ export default function AboutUsPage() {
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                         {[
                             {
                                 name: "Donator NDERITU",
@@ -127,20 +128,37 @@ export default function AboutUsPage() {
                                 role: "Chief Growth Officer",
                                 image: "/Yvette-Umurerwa.jpg"
                             }
-                        ].map((member, idx) => (
-                            <div key={idx} className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border group text-center flex flex-col transform hover:-translate-y-2">
-                                <div className="relative w-full h-[400px] overflow-hidden bg-gray-50 flex items-center justify-center">
+                        ].map((member) => (
+                            <div
+                                key={member.name}
+                                className="group relative bg-white rounded-3xl overflow-hidden border border-border shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                            >
+
+                                {/* Image */}
+                                <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className="object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+                                        sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
+
+                                    {/* Hover gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
                                 </div>
-                                <div className="p-8 pb-10 flex-grow flex flex-col justify-center bg-white relative z-20">
-                                    <h3 className="text-2xl font-heading font-bold text-secondary mb-3">{member.name}</h3>
-                                    <p className="text-primary font-bold text-sm tracking-wider uppercase bg-primary/10 inline-block px-4 py-2 rounded-full mx-auto">{member.role}</p>
+
+                                {/* Info */}
+                                <div className="p-8 text-center">
+                                    <h3 className="text-xl font-heading font-bold text-secondary">
+                                        {member.name}
+                                    </h3>
+
+                                    <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-4 py-2 rounded-full">
+                                        {member.role}
+                                    </span>
                                 </div>
+
                             </div>
                         ))}
                     </div>

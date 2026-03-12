@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 
 const inter = Inter({
@@ -28,8 +27,8 @@ export default function RootLayout({
     <html lang="en">
       <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
       <body className={`${inter.variable} ${outfit.variable} antialiased`}>
-        <Navbar />
-        <main className="min-h-screen pt-[88px]">
+        <NavbarWrapper />
+        <main className="min-h-screen">
           {children}
         </main>
         <Footer />
@@ -37,3 +36,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+import { NavbarWrapper } from "./components/layout/NavbarWrapper";

@@ -132,12 +132,12 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     </div>
 
                     {/* Sidebar - Safety Tip */}
-                    <div className="lg:col-span-1">
+                    {/* <div className="lg:col-span-1">
                         <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 text-sm text-muted leading-relaxed shadow-sm">
                             <strong className="text-secondary font-semibold block mb-2">Safety Tip:</strong>
                             Never transfer money before verifying the property and signing a legal agreement. Our agents are verified professionals who will walk you through the process securely.
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

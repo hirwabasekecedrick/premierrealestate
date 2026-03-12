@@ -41,7 +41,7 @@ export function Neighborhoods() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-secondary mb-4">
                         Explore Kigali Neighborhoods
                     </h2>
@@ -51,12 +51,13 @@ export function Neighborhoods() {
                 </div>
 
                 {/* CSS Grid for Areas */}
-                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] auto-rows-[290px]">
+                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[700px] auto-rows-[340px]">
                     {NEIGHBORHOODS.map((area, index) => (
                         <Link
                             key={area.name}
-                            href={`/properties?location=${area.name}`}
-                            className={`group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 block ${area.span}`}
+                            href={`/buy?location=${area.name}`}
+                            className={`group relative rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 block animate-fade-in-up ${area.span}`}
+                            style={{ animationDelay: `${(index + 1) * 150}ms` }}
                         >
                             {/* Background Image */}
                             <Image

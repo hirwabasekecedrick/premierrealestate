@@ -1,175 +1,195 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Search, MapPin, Home, DollarSign } from "lucide-react";
-
-const HERO_CONTENT = [
-    {
-        title: "Welcome to Kigali",
-        subtitle: "Premier Real Estate Services is a boutique real estate firm in Kigali Rwanda specializing in residential and commercial rentals and sales.",
-        bgImage: "/assets/kigali_convention_centre_cover.jpeg"
-    },
-    {
-        title: "Residences",
-        subtitle: "Home is more than a place, it’s a feeling.",
-        bgImage: "/assets/m_plaza.jpg"
-    },
-    {
-        title: "Office Spaces",
-        subtitle: "Others see windows, we see opportunities.",
-        bgImage: "/assets/warehouse.webp"
-    },
-    {
-        title: "Industrial Spots",
-        subtitle: "Maximize your property potential",
-        bgImage: "/assets/penthouse.jpg"
-    }
-];
+import { Search, ChevronDown, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Navbar } from "../layout/Navbar";
 
 export function HeroSection() {
     const router = useRouter();
-    const [activeTab, setActiveTab] = useState<"buy" | "rent">("buy");
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Search States
+    const [propertyType, setPropertyType] = useState("");
+    const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
-    const [propertyType, setPropertyType] = useState("Any Type");
-    const [priceRange, setPriceRange] = useState("Any Price");
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % HERO_CONTENT.length);
-        }, 6000);
-        return () => clearInterval(timer);
-    }, []);
+    const [rooms, setRooms] = useState("");
 
     const handleSearch = () => {
         const params = new URLSearchParams();
         if (location) params.append("search", location);
-        if (propertyType !== "Any Type") params.append("type", propertyType);
-        // Simplified price filter logic for routing
-        if (priceRange !== "Any Price") params.append("price", priceRange);
-
-        router.push(`/${activeTab}?${params.toString()}`);
+        if (propertyType) params.append("type", propertyType);
+        if (price) params.append("price", price);
+        if (rooms) params.append("rooms", rooms);
+        router.push(`/buy?${params.toString()}`);
     };
 
     return (
-        <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-            {/* Background Images */}
-            {HERO_CONTENT.map((slide, index) => (
-                <div
-                    key={index}
-                    className={`absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
-                    style={{ backgroundImage: `url('${slide.bgImage}')` }}
-                >
-                    <div className="absolute inset-0 bg-secondary/70"></div>
-                </div>
-            ))}
+        <section className="relative w-full min-h-screen flex flex-col overflow-hidden">
+            {/* Background Image Layer - Full Bleed */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/assets/hero.webp"
+                    alt="Modern Mansion"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/70 via-black/20 to-black/30"></div>
+            </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center mt-16">
-                <div className="text-center mb-10 pb-4 h-48 flex flex-col justify-end">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 tracking-tight drop-shadow-lg transition-all duration-500 transform translate-y-0">
-                        {HERO_CONTENT[currentSlide].title}
-                    </h1>
-                    <p className="text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-md transition-all duration-500">
-                        {HERO_CONTENT[currentSlide].subtitle}
-                    </p>
-                </div>
+            {/* Content Layer */}
+            <div className="relative z-10 w-full flex-1 flex flex-col">
+                {/* Embedded Navbar */}
+                <Navbar isEmbedded={true} />
 
-                {/* Premium Search Bar Panel */}
-                <div className="w-full max-w-4xl bg-white/10 backdrop-blur-md p-2 rounded-3xl shadow-2xl border border-white/20">
-                    <div className="bg-white rounded-2xl p-4 md:p-6 shadow-inner">
-
-                        {/* Buy / Rent Toggle */}
-                        <div className="flex items-center gap-4 mb-6 pt-1 pl-2">
-                            <button
-                                onClick={() => setActiveTab("buy")}
-                                className={`text-lg font-medium transition-colors pb-2 border-b-2 ${activeTab === 'buy' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-primary'}`}
-                            >
-                                For Sale
-                            </button>
-                            <button
-                                onClick={() => setActiveTab("rent")}
-                                className={`text-lg font-medium transition-colors pb-2 border-b-2 ${activeTab === 'rent' ? 'border-primary text-primary' : 'border-transparent text-muted hover:text-primary'}`}
-                            >
-                                For Rent
-                            </button>
+                {/* Hero Content */}
+                <div className="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center px-6 lg:px-8 py-20 lg:py-0">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+                        {/* Left Side: Headline */}
+                        <div className="lg:col-span-7 xl:col-span-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+                            {/* Badges */}
+                            <div className="flex flex-wrap gap-3 mb-8">
+                                {["House", "Apartment", "Residential"].map((tag) => (
+                                    <span key={tag} className="px-5 py-2 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold border border-white/20 tracking-wider">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <h1 className="text-4xl md:text-7xl xl:text-[6rem] font-heading font-medium text-white leading-[1.1] lg:leading-[1.02] tracking-tight">
+                                Build Your Future, <br className="hidden md:block" />
+                                One Property at a Time.
+                            </h1>
                         </div>
 
-                        {/* Form Fields */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-
-                            <div className="w-full">
-                                <label className="block text-sm font-medium text-muted mb-1 ml-1">Location</label>
-                                <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <MapPin size={18} className="text-muted" />
-                                    </div>
-                                    <input
-                                        type="text"
-                                        value={location}
-                                        onChange={(e) => setLocation(e.target.value)}
-                                        className="w-full pl-10 pr-3 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-muted/50"
-                                        placeholder="e.g. Nyarutarama"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="w-full">
-                                <label className="block text-sm font-medium text-muted mb-1 ml-1">Property Type</label>
-                                <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <Home size={18} className="text-muted" />
-                                    </div>
-                                    <select
-                                        value={propertyType}
-                                        onChange={(e) => setPropertyType(e.target.value)}
-                                        className="w-full pl-10 pr-3 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white cursor-pointer"
-                                    >
-                                        <option>Any Type</option>
-                                        <option>Villa</option>
-                                        <option>Apartment</option>
-                                        <option>Mansion</option>
-                                        <option>Commercial</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="w-full">
-                                <label className="block text-sm font-medium text-muted mb-1 ml-1">Price Range</label>
-                                <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span className="text-muted text-sm px-2">FRW</span>
-                                    </div>
-                                    <select
-                                        value={priceRange}
-                                        onChange={(e) => setPriceRange(e.target.value)}
-                                        className="w-full ml-0 pl-14 pr-3 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white cursor-pointer"
-                                    >
-                                        <option>Any Price</option>
-                                        <option>FRW 100k - FRW 300k</option>
-                                        <option>FRW 300k - FRW 500k</option>
-                                        <option>FRW 500k - FRW 1M</option>
-                                        <option>FRW 1M+</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="w-full">
+                        {/* Right Side: Description & CTA */}
+                        <div className="lg:col-span-4 lg:col-start-9 lg:pb-6 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                            <div className="flex flex-col items-start gap-8">
+                                <p className="text-white/80 text-base md:text-lg lg:text-xl leading-relaxed font-medium">
+                                    Each listing offers unique features, exceptional quality, and prime locations. Own Your World, One Property at a Time.
+                                </p>
                                 <button
-                                    onClick={handleSearch}
-                                    className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-xl font-medium transition-all flex items-center justify-center gap-2 h-[48px] shadow-lg hover:shadow-primary/30 active:scale-[0.98]"
+                                    onClick={() => router.push('/buy')}
+                                    className="group bg-primary hover:bg-white text-white hover:text-secondary px-10 py-5 rounded-full font-bold transition-all duration-500 flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 whitespace-nowrap"
                                 >
-                                    <Search size={20} />
-                                    <span>Search</span>
+                                    Explore Properties
+                                    <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
+                {/* Bottom Floating Search Panel */}
+                <div className="relative w-full max-w-7xl mx-auto px-4 lg:px-8 pb-10 lg:pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+                    <div className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl lg:rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-8 lg:p-10 border border-white/40">
+                        {/* Heading at Top */}
+                        <div className="mb-6">
+                            <h2 className="text-2xl font-bold text-secondary tracking-tight">Find the best place</h2>
+                        </div>
+
+                        {/* Inputs Grid in Middle */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                            {/* Field 1 */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-[0.15em] text-muted/80 px-1">Looking for</label>
+                                <div className="relative group/field">
+                                    <select
+                                        value={propertyType}
+                                        onChange={(e) => setPropertyType(e.target.value)}
+                                        className="w-full bg-gray-50/50 border border-gray-100 rounded-2xl py-4 px-5 outline-none text-sm font-bold text-secondary focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all appearance-none cursor-pointer"
+                                    >
+                                        <option value="">Property Type</option>
+                                        <option value="House">House</option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="Residential">Residential</option>
+                                        <option value="Villa">Villa</option>
+                                    </select>
+                                    <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-muted pointer-events-none group-focus-within/field:rotate-180 transition-transform" />
+                                </div>
+                            </div>
+                            {/* Field 2 */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-[0.15em] text-muted/80 px-1">Price Range</label>
+                                <div className="relative group/field">
+                                    <select
+                                        value={price}
+                                        onChange={(e) => setPrice(e.target.value)}
+                                        className="w-full bg-gray-50/50 border border-gray-100 rounded-2xl py-4 px-5 outline-none text-sm font-bold text-secondary focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all appearance-none cursor-pointer"
+                                    >
+                                        <option value="">Price Range</option>
+                                        <option value="0-100000">FRW 0 - FRW 100k</option>
+                                        <option value="100000-500000">FRW 100k - FRW 500k</option>
+                                        <option value="500000-1000000">FRW 500k - FRW 1M</option>
+                                        <option value="1000000+">FRW 1M+</option>
+                                    </select>
+                                    <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-muted pointer-events-none group-focus-within/field:rotate-180 transition-transform" />
+                                </div>
+                            </div>
+                            {/* Field 3 */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-[0.15em] text-muted/80 px-1">Locations</label>
+                                <div className="relative group/field">
+                                    <select
+                                        value={location}
+                                        onChange={(e) => setLocation(e.target.value)}
+                                        className="w-full bg-gray-50/50 border border-gray-100 rounded-2xl py-4 px-5 outline-none text-sm font-bold text-secondary focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all appearance-none cursor-pointer"
+                                    >
+                                        <option value="">All Locations</option>
+                                        <option value="New York">New York</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Houston">Houston</option>
+                                    </select>
+                                    <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-muted pointer-events-none group-focus-within/field:rotate-180 transition-transform" />
+                                </div>
+                            </div>
+                            {/* Field 4 */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-[0.15em] text-muted/80 px-1">Rooms Capacity</label>
+                                <div className="relative group/field">
+                                    <select
+                                        value={rooms}
+                                        onChange={(e) => setRooms(e.target.value)}
+                                        className="w-full bg-gray-50/50 border border-gray-100 rounded-2xl py-4 px-5 outline-none text-sm font-bold text-secondary focus:bg-white focus:border-primary/20 focus:ring-4 focus:ring-primary/5 transition-all appearance-none cursor-pointer"
+                                    >
+                                        <option value="">Rooms</option>
+                                        <option value="1">1 Bedroom</option>
+                                        <option value="2">2+ Bedrooms</option>
+                                        <option value="3">3+ Bedrooms</option>
+                                        <option value="4">4+ Bedrooms</option>
+                                    </select>
+                                    <ChevronDown size={14} className="absolute right-5 top-1/2 -translate-y-1/2 text-muted pointer-events-none group-focus-within/field:rotate-180 transition-transform" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Footer Row: Quick Filters & Search Button */}
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-0">
+                            {/* Quick Filters */}
+                            <div className="flex flex-wrap items-center gap-4">
+                                <span className="text-xs font-bold text-muted uppercase tracking-wider">Filters:</span>
+                                {["City", "House", "Residential", "Apartment"].map((filter) => (
+                                    <button
+                                        key={filter}
+                                        onClick={() => setPropertyType(filter)}
+                                        className="px-5 py-2.5 rounded-full border border-gray-100 text-sm font-bold text-secondary hover:border-primary/20 hover:bg-primary/5 hover:text-primary transition-all active:scale-95"
+                                    >
+                                        {filter}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Search Button */}
+                            <button
+                                onClick={handleSearch}
+                                className="w-full md:w-auto bg-secondary lg:h-16 px-14 py-4 lg:py-0 rounded-full text-white font-bold flex items-center justify-center gap-3 hover:bg-primary transition-all duration-500 active:scale-95 whitespace-nowrap lg:-mr-2 shadow-2xl shadow-secondary/20 group"
+                            >
+                                <Search size={22} className="group-hover:scale-110 transition-transform" />
+                                <span className="text-lg hidden md:inline">Search Property</span>
+                                <span className="text-lg md:hidden">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );
