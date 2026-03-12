@@ -164,7 +164,7 @@ export function Footer() {
               )}
             </div>
           </div>
-
+        {/* <div></div> */}
           {/* Contact Details */}
           <div>
             <h3 className="font-heading font-semibold text-lg mb-6">
