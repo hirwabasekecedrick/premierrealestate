@@ -3,6 +3,7 @@ import { FeaturedProperties } from "./components/home/FeaturedProperties";
 import { Neighborhoods } from "./components/home/Neighborhoods";
 import { EngagingContent } from "./components/home/EngagingContent";
 import { TrustIndicators } from "./components/home/TrustIndicators";
+import BlogSection from "./components/home/BlogSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <FeaturedProperties />
       <Neighborhoods />
+      <BlogSection />
       <EngagingContent />
       <TrustIndicators />
     </>

@@ -68,9 +68,6 @@ export default function NewDevelopmentsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {NEW_DEVELOPMENTS.map((property) => (
                         <div key={property.id} className="relative group">
-                            <div className="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                                Off-Plan
-                            </div>
                             <PropertyCard {...property} />
                         </div>
                     ))}
