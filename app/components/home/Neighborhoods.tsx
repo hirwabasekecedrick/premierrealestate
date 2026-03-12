@@ -51,12 +51,12 @@ export function Neighborhoods() {
                 </div>
 
                 {/* CSS Grid for Areas */}
-                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[700px] auto-rows-[340px]">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[700px]">
                     {NEIGHBORHOODS.map((area, index) => (
                         <Link
                             key={area.name}
                             href={`/buy?location=${area.name}`}
-                            className={`group relative rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 block animate-fade-in-up ${area.span}`}
+                            className={`group relative rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 block animate-fade-in-up h-[300px] md:h-auto ${area.span}`}
                             style={{ animationDelay: `${(index + 1) * 150}ms` }}
                         >
                             {/* Background Image */}

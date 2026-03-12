@@ -100,6 +100,10 @@ export function Navbar({ isEmbedded = false }: NavbarProps) {
 
                 {/* Mobile Menu & Language Wrapper */}
                 <div className="md:hidden flex items-center gap-4">
+                    <button className={`flex items-center gap-1.5 font-bold text-xs transition-colors ${textClass}`}>
+                        <Globe size={18} />
+                        Eng
+                    </button>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className={`p-1.5 transition-colors ${textClass}`}

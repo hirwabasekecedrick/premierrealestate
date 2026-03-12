@@ -49,8 +49,8 @@ export default function NewDevelopmentsPage() {
                     </div>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">New Developments</h1>
-                <p className="text-lg max-w-2xl mx-auto text-gray-300">
-                    Be the first to secure a spot in Kigali's most anticipated upcoming residential and commercial projects.
+                <p className="text-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
+                    Discover Kigali&apos;s most anticipated luxury residential and commercial projects.
                 </p>
             </div>
 

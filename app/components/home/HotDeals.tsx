@@ -56,8 +56,8 @@ export function HotDeals() {
                             <Flame size={16} fill="currentColor" /> HOT DEALS OF THE WEEK
                         </div>
                         <h2 className="text-4xl md:text-6xl font-heading font-medium text-secondary mb-6 leading-tight">
-                            Exclusive Offers You <br />
-                            <span className="text-primary italic">Can't Miss</span>
+                            Explore Rwandan <br />
+                            <span className="text-primary italic">Hot Deals</span>
                         </h2>
                         <p className="text-muted text-lg max-w-xl">
                             Grab these high-value properties at significantly reduced prices. These deals are updated weekly and move fast.

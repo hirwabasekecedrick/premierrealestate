@@ -42,7 +42,7 @@ export function HeroSection() {
                 <Navbar isEmbedded={true} />
 
                 {/* Hero Content */}
-                <div className="w-full max-w-400 mx-auto flex-1 flex flex-col justify-center mb-0 lg:-mb-30 px-6 lg:px-8 py-20 lg:py-0">
+                <div className="w-full max-w-7xl mx-auto flex-1 flex flex-col justify-center mb-0 lg:-mb-24 px-6 lg:px-8 py-20 lg:py-0">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
                         {/* Left Side: Headline */}
                         <div className="lg:col-span-7 xl:col-span-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
@@ -54,10 +54,12 @@ export function HeroSection() {
                                     </span>
                                 ))}
                             </div>
-                            <h1 className="text-4xl md:text-7xl xl:text-[5rem] font-heading font-medium text-white leading-[1.1] lg:leading-[1.02] tracking-tight">
-                                Build Your Future, <br className="hidden md:block" />
-                                One Property at a Time.
-                            </h1>
+                            <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-8">
+                                <h1 className="text-4xl md:text-7xl xl:text-[5rem] font-heading font-medium text-white leading-[1.1] lg:leading-[1.02] tracking-tight">
+                                    Build Your Future, <br className="hidden md:block" />
+                                    One Property at a Time.
+                                </h1>
+                            </div>
                         </div>
 
                         {/* Right Side: Description & CTA */}
@@ -79,7 +81,7 @@ export function HeroSection() {
                 </div>
 
                 {/* Bottom Floating Search Panel */}
-                <div className="relative w-full max-w-400 mx-auto px-4 lg:px-8 pb-10 lg:pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+                <div className="relative w-full max-w-7xl mx-auto px-4 lg:px-8 pb-10 lg:pb-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                     <div className="w-full bg-white/95 backdrop-blur-2xl rounded-3xl lg:rounded-[3.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-8 lg:p-10 border border-white/40">
                         {/* Heading at Top */}
                         <div className="mb-6">

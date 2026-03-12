@@ -2,7 +2,7 @@ import { MapPin, Bed, Bath, Square, CheckCircle2 } from "lucide-react";
 import PropertyImageCarousel from "@/app/components/property/PropertyImageCarousel";
 import PropertyContactForm from "@/app/components/property/PropertyContactForm";
 
-export default function PropertyDetailPage({ params }: { params: { id: string } }) {
+export default function PropertyDetailPage() {
     // Dummy data for demo
     const property = {
         title: "Modern Luxury Villa with Pool",

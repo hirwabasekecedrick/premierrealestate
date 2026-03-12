@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, TrendingUp, Key, Users, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,8 +17,8 @@ export function EngagingContent() {
                             begin to feel left out.
                         </h2>
                     </div>
-                    <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}>
-                        <div className="relative w-32 h-16 rounded-full overflow-hidden shadow-lg border-2 border-white group-hover:scale-110 transition-transform duration-500">
+                    <div className="flex flex-row items-center gap-6 group cursor-pointer" onClick={() => window.open('https://www.youtube.com/@premierrealestateservices', '_blank')}>
+                        <div className="relative w-24 h-12 sm:w-32 sm:h-16 rounded-full overflow-hidden shadow-lg border-2 border-white group-hover:scale-110 transition-transform duration-500 shrink-0">
                             <Image
                                 src="/assets/Dinning-kitchen.png"
                                 alt="Video teaser"
@@ -26,10 +26,10 @@ export function EngagingContent() {
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                                <Play size={20} className="text-white fill-white" />
+                                <Play size={16} className="text-white fill-white" />
                             </div>
                         </div>
-                        <p className="max-w-[200px] text-sm text-secondary/60 font-medium group-hover:text-primary transition-colors">
+                        <p className="max-w-[200px] text-[10px] sm:text-sm text-secondary/60 font-medium group-hover:text-primary transition-colors">
                             Each listing offers unique features, exceptional quality, and prime locations
                         </p>
                     </div>
@@ -55,7 +55,7 @@ export function EngagingContent() {
                     </div>
 
                     {/* Small Info Card 1 */}
-                    <div className="lg:col-span-3 bg-gray-50 rounded-[3rem] p-10 flex flex-col justify-center items-center text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+                    <div className="lg:col-span-3 bg-gray-50 rounded-[3rem] p-10 flex flex-col justify-center items-center text-center animate-fade-in-up md:h-[400px] lg:h-auto" style={{ animationDelay: '400ms' }}>
                         <h3 className="text-3xl font-heading font-bold text-secondary mb-6 leading-tight">
                             Big things can happen in small spaces.
                         </h3>
@@ -68,7 +68,7 @@ export function EngagingContent() {
                     </div>
 
                     {/* Small Info Card 2 */}
-                    <div className="lg:col-span-3 overflow-hidden rounded-[3rem] shadow-xl border border-border group animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+                    <div className="lg:col-span-3 overflow-hidden rounded-[3rem] shadow-xl border border-border group animate-fade-in-up h-[450px] lg:h-auto" style={{ animationDelay: '600ms' }}>
                         <div className="relative h-1/2 w-full">
                             <Image src="/assets/nice.png" alt="Property" fill className="object-cover" />
                         </div>
@@ -86,7 +86,7 @@ export function EngagingContent() {
 
                 <div className="mt-16 flex flex-col items-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
                     <p className="text-center text-secondary/60 font-medium max-w-xl text-sm mb-10">
-                        Whether it's creating a cozy corner for relaxation or transforming a small area into a workspace
+                        Whether it&apos;s creating a cozy corner for relaxation or transforming a small area into a workspace
                     </p>
                     <div className="flex gap-4">
                         <Link href="/buy" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-secondary hover:bg-secondary hover:text-white transition-all active:scale-90">←</Link>

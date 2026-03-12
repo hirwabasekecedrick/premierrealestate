@@ -17,7 +17,7 @@ export interface PropertyProps {
 }
 
 export function PropertyCard({
-    id, title, price, location, beds, baths, sqft, type = "Villa", status = "For Sale", imageUrl
+    id, title, price, location, beds, baths, sqft, status = "For Sale", imageUrl
 }: PropertyProps) {
     return (
         <div className="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2">

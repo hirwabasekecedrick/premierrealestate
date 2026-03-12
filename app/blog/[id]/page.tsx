@@ -3,7 +3,7 @@
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, User, ArrowLeft, Share2, MessageCircle } from "lucide-react";
+import { Calendar, ArrowLeft, Share2, MessageCircle } from "lucide-react";
 
 const BLOG_POSTS = [
     {

@@ -130,7 +130,7 @@ function RentPageContent() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                 <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 relative z-10 tracking-tight">Properties for Rent</h1>
                 <p className="text-lg max-w-2xl mx-auto text-gray-300 relative z-10">
-                    Discover a wide range of rental properties across Kigali's vibrant neighborhoods.
+                    Discover a wide range of rental properties across Kigali&apos;s vibrant neighborhoods.
                 </p>
             </div>
 
@@ -215,7 +215,7 @@ function RentPageContent() {
                             <Search size={32} className="text-muted" />
                         </div>
                         <h3 className="text-2xl font-heading font-bold text-secondary mb-2">Oops! No rentals found</h3>
-                        <p className="text-muted">We couldn't find any rentals matching your search. Try different keywords or filters.</p>
+                        <p className="text-muted">We couldn&apos;t find any rentals matching your search. Try different keywords or filters.</p>
                         <button
                             onClick={() => {
                                 setSearchQuery("");

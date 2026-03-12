@@ -37,7 +37,7 @@ export default function AboutUsPage() {
                             Home is more than a place, it’s a feeling. We strive to provide unparalleled services to our clients by helping them make informed decisions and finding the spaces that perfectly align with their lifestyle and business needs.
                         </p>
                         <p className="text-lg text-muted leading-relaxed mb-8">
-                            Others see windows, we see opportunities. Our expertise spans luxury modern homes, expansive industrial spaces, and state-of-the-art office environments across Kigali's most prestigious districts.
+                            Others see windows, we see opportunities. Our expertise spans luxury modern homes, expansive industrial spaces, and state-of-the-art office environments across Kigali&apos;s most prestigious districts.
                         </p>
 
                         <div className="space-y-4 mb-10">
@@ -51,12 +51,12 @@ export default function AboutUsPage() {
                             ))}
                         </div>
 
-                        <div className="flex gap-4">
-                            <div className="bg-background border border-border px-8 py-6 rounded-2xl text-center shadow-sm">
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="flex-1 bg-background border border-border px-8 py-6 rounded-2xl text-center shadow-sm">
                                 <div className="font-heading font-bold text-4xl text-primary mb-1">10+</div>
                                 <div className="text-sm font-medium text-muted uppercase tracking-wider">Years Exp.</div>
                             </div>
-                            <div className="bg-background border border-border px-8 py-6 rounded-2xl text-center shadow-sm">
+                            <div className="flex-1 bg-background border border-border px-8 py-6 rounded-2xl text-center shadow-sm">
                                 <div className="font-heading font-bold text-4xl text-primary mb-1">500+</div>
                                 <div className="text-sm font-medium text-muted uppercase tracking-wider">Listings</div>
                             </div>
@@ -86,7 +86,7 @@ export default function AboutUsPage() {
                         </div>
                         <div className="w-full md:w-3/5 p-8 md:p-14 flex flex-col justify-center bg-white relative">
                             {/* Decorative quotes */}
-                            <div className="absolute top-10 right-10 text-primary/10 text-8xl font-serif">"</div>
+                            <div className="absolute top-10 right-10 text-primary/10 text-8xl font-serif">&quot;</div>
 
                             <h3 className="text-3xl font-heading font-bold text-secondary mb-2 relative z-10">Celesitne UWINEZA</h3>
                             <p className="text-primary font-medium tracking-widest uppercase text-sm mb-8 relative z-10">Chief Executive Officer</p>

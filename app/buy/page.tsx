@@ -235,7 +235,7 @@ function BuyPageContent() {
               Oops! No properties found
             </h3>
             <p className="text-muted">
-              We couldn't find any properties matching your search. Try
+              We couldn&apos;t find any properties matching your search. Try
               different keywords or filters.
             </p>
             <button

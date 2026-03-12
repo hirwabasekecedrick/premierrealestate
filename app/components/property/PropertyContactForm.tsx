@@ -14,6 +14,9 @@ export default function PropertyContactForm() {
             <h3 className="font-heading font-bold text-2xl text-secondary mb-6">Request more info</h3>
 
             <form onSubmit={handleSubmit} className="space-y-5">
+                <p className="text-gray-500 mb-8">
+                    &quot;Unlock your dream property today with a simple click!&quot;
+                </p>
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-secondary mb-1.5 ml-1">
                         Name
@@ -80,7 +83,7 @@ export default function PropertyContactForm() {
             </form>
 
             <p className="mt-6 text-xs text-muted leading-relaxed text-center px-4">
-                By clicking "Send Request", you agree to our terms of service and privacy policy.
+                By clicking &quot;Send Request&quot;, you agree to our terms of service and privacy policy.
             </p>
         </div>
     );

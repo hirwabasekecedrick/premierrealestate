@@ -62,7 +62,7 @@ export function Testimonials() {
                             </div>
 
                             <p className="text-secondary/70 text-lg leading-relaxed mb-10 font-medium">
-                                "{t.text}"
+                                &quot;{t.text}&quot;
                             </p>
 
                             <div className="flex items-center gap-4">
