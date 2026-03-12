@@ -10,7 +10,7 @@ const NEW_DEVELOPMENTS: PropertyProps[] = [
         beds: 3,
         baths: 2,
         sqft: 200,
-        imageUrl: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/sky-view.jpg",
         isFeatured: true,
     },
     {
@@ -21,7 +21,7 @@ const NEW_DEVELOPMENTS: PropertyProps[] = [
         beds: 4,
         baths: 3,
         sqft: 350,
-        imageUrl: "https://images.unsplash.com/photo-1613490908578-83b9e4a3ed60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/kagugu.png",
         isFeatured: true,
     },
     {
@@ -32,7 +32,7 @@ const NEW_DEVELOPMENTS: PropertyProps[] = [
         beds: 2,
         baths: 2,
         sqft: 150,
-        imageUrl: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        imageUrl: "/assets/nice.png",
         isFeatured: false,
     }
 ];
@@ -68,9 +68,6 @@ export default function NewDevelopmentsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {NEW_DEVELOPMENTS.map((property) => (
                         <div key={property.id} className="relative group">
-                            <div className="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                                Off-Plan
-                            </div>
                             <PropertyCard {...property} />
                         </div>
                     ))}
@@ -78,7 +75,7 @@ export default function NewDevelopmentsPage() {
 
                 {/* Call to Action */}
                 <div className="mt-20 bg-secondary rounded-3xl p-10 text-center relative overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 z-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')" }}></div>
+                    <div className="absolute inset-0 z-0 bg-cover bg-center opacity-10" style={{ backgroundImage: "url('/assets/front-pic-1.png')" }}></div>
                     <div className="relative z-10 max-w-2xl mx-auto">
                         <h3 className="text-3xl font-heading font-bold text-white mb-4">Looking for investment opportunities?</h3>
                         <p className="text-lg text-gray-300 mb-8">

@@ -1,5 +1,6 @@
-import Image from "next/image";
-import { MapPin, Bed, Bath, Square, CheckCircle2, Phone, Mail, CalendarDays } from "lucide-react";
+import { MapPin, Bed, Bath, Square, CheckCircle2 } from "lucide-react";
+import PropertyImageCarousel from "@/app/components/property/PropertyImageCarousel";
+import PropertyContactForm from "@/app/components/property/PropertyContactForm";
 
 export default function PropertyDetailPage({ params }: { params: { id: string } }) {
     // Dummy data for demo
@@ -12,47 +13,45 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
         sqft: 4500,
         type: "Villa",
         status: "For Sale",
-        description: "Experience unparalleled luxury in this stunning modern villa located in the heart of Nyarutarama. Featuring expansive floor-to-ceiling windows, a private infinity pool, and a state-of-the-art chef's kitchen. The master suite offers panoramic views of Kigali's rolling hills.",
+        description: "Experience unparalleled luxury in this stunning modern villa located in the heart of Nyarutarama. Featuring expansive floor-to-ceiling windows, a private pool, and a state-of-the-art chef's kitchen. The master suite offers panoramic views of Kigali's rolling hills.",
         amenities: [
-            "Infinity Pool", "Smart Home Technology", "Gated Security 24/7",
+            "Pool", "Smart Home Technology", "Gated Security 24/7",
             "Chef's Kitchen", "Home Theater", "Wine Cellar",
             "Landscaped Garden", "Double Garage"
         ],
         agent: {
-            name: "Elise Kamanzi",
+            name: "Sales",
             role: "Senior Luxury Agent",
-            phone: "+250 788 000 001",
-            email: "elise@premierrealestate.co.rw",
-            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&q=80"
+            phone: "+250 787 058 133",
+            email: "info@premierrealestate.co.rw",
+            avatar: "/Iribagiza-Rose.jpg" // Using an existing local asset for avatar
         },
         images: [
-            "https://images.unsplash.com/photo-1613490900233-141c5560ddaf?w=1200&q=80",
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+            "/assets/Main-PHOTO-2020-10-08-11-20-26-1.jpg",
+            "/assets/PHOTO-2020-10-06-11-30-251.jpg",
+            "/assets/b.png",
+            "/assets/bedroom.png",
+            "/assets/drone.png",
+            "/assets/front.png",
+            "/assets/front2.jpg",
+            "/assets/img-brilliant-5.jpg"
         ]
     };
 
     return (
         <div className="bg-background min-h-screen">
 
-            {/* Image Gallery Header */}
+            {/* Top Section: Carousel & Contact Form */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-                <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-sm">
-                    <div className="col-span-4 md:col-span-3 row-span-2 relative group cursor-pointer">
-                        <Image src={property.images[0]} alt="Main" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div className="absolute top-4 left-4 flex gap-2">
-                            <span className="bg-primary text-white font-bold px-4 py-2 rounded-full shadow-lg text-sm">{property.status}</span>
-                            <span className="bg-white/90 backdrop-blur-md text-secondary font-bold px-4 py-2 rounded-full shadow-lg text-sm">{property.type}</span>
-                        </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    {/* Image Gallery Header (Carousel) */}
+                    <div className="lg:col-span-2">
+                        <PropertyImageCarousel images={property.images} />
                     </div>
-                    <div className="hidden md:block col-span-1 row-span-1 relative overflow-hidden group cursor-pointer">
-                        <Image src={property.images[1]} alt="Side 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                    </div>
-                    <div className="hidden md:block col-span-1 row-span-1 relative overflow-hidden group cursor-pointer">
-                        <Image src={property.images[2]} alt="Side 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                        <div className="absolute inset-0 bg-secondary/40 flex items-center justify-center hover:bg-secondary/50 transition-colors">
-                            <span className="text-white font-medium">+5 Photos</span>
-                        </div>
+
+                    {/* Sidebar - Request Info Form (Top for Desktop) */}
+                    <div className="lg:col-span-1 h-full">
+                        <PropertyContactForm />
                     </div>
                 </div>
             </div>
@@ -132,44 +131,11 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
 
                     </div>
 
-                    {/* Sidebar - Agent & CTAs */}
+                    {/* Sidebar - Safety Tip */}
                     <div className="lg:col-span-1">
-                        <div className="bg-white rounded-3xl p-8 border border-border shadow-2xl sticky top-32">
-                            <h3 className="font-heading font-bold text-xl text-secondary mb-6">Interested in this property?</h3>
-
-                            {/* Agent Profile */}
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                                    <Image src={property.agent.avatar} alt={property.agent.name} fill className="object-cover" />
-                                </div>
-                                <div>
-                                    <h4 className="font-heading font-bold text-lg text-secondary">{property.agent.name}</h4>
-                                    <p className="text-primary text-sm font-medium">{property.agent.role}</p>
-                                </div>
-                            </div>
-
-                            {/* Action Buttons */}
-                            <div className="space-y-4 mb-8">
-                                <button className="w-full bg-secondary hover:bg-secondary-light text-white font-medium py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                                    <CalendarDays size={20} />
-                                    Get Started
-                                </button>
-                                <button className="w-full bg-primary hover:bg-primary-hover text-white font-medium py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
-                                    <Phone size={20} />
-                                    Call Agent
-                                </button>
-                                <button className="w-full bg-transparent hover:bg-gray-50 border border-border text-secondary font-medium py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
-                                    <Mail size={20} />
-                                    Send Message
-                                </button>
-                            </div>
-
-                            {/* Safety Tip */}
-                            <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 text-xs text-muted leading-relaxed">
-                                <strong className="text-secondary font-semibold block mb-1">Safety Tip:</strong>
-                                Never transfer money before verifying the property and signing a legal agreement. Our agents are verified professionals.
-                            </div>
-
+                        <div className="bg-gray-50 border border-gray-100 rounded-3xl p-6 text-sm text-muted leading-relaxed shadow-sm">
+                            <strong className="text-secondary font-semibold block mb-2">Safety Tip:</strong>
+                            Never transfer money before verifying the property and signing a legal agreement. Our agents are verified professionals who will walk you through the process securely.
                         </div>
                     </div>
 

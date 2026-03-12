@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Calendar, User, ArrowRight } from "lucide-react";
 
-const BLOG_POSTS = [
+const FEATURED_BLOGS = [
     {
         id: 1,
         title: "10 Reasons to Invest in Kigali Real Estate in 2024",
@@ -32,37 +32,31 @@ const BLOG_POSTS = [
     }
 ];
 
-export default function BlogPage() {
+export default function BlogSection() {
     return (
-        <div className="pb-20 bg-background min-h-screen">
-
-            {/* Header */}
-            <div className="bg-secondary py-16 text-center text-white mb-16 px-4">
-                <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Real Estate Insights</h1>
-                <p className="text-lg max-w-2xl mx-auto text-gray-300">
-                    News, guides, and trends from the Rwandan property market.
-                </p>
-            </div>
-
+        <section className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Categories / Tags */}
-                <div className="flex flex-wrap gap-3 justify-center mb-12">
-                    {['All Posts', 'Investment', 'Guides', 'Lifestyle', 'Market Updates'].map((tag, index) => (
-                        <button
-                            key={index}
-                            className={`px-5 py-2 rounded-full font-medium text-sm transition-colors ${index === 0 ? 'bg-secondary text-white' : 'bg-white border border-border text-muted hover:border-secondary hover:text-secondary'}`}
-                        >
-                            {tag}
-                        </button>
-                    ))}
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div className="max-w-2xl">
+                        <h2 className="text-primary font-bold uppercase tracking-widest text-sm mb-3">Resources & News</h2>
+                        <h3 className="text-3xl md:text-5xl font-heading font-bold text-secondary leading-tight">
+                            Latest Insights From The <br />
+                            <span className="text-primary italic">Rwandan Market</span>
+                        </h3>
+                    </div>
+                    <Link
+                        href="/blog"
+                        className="group flex items-center gap-2 text-secondary font-bold hover:text-primary transition-colors pb-2 border-b-2 border-secondary hover:border-primary"
+                    >
+                        View All Articles
+                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </div>
 
-                {/* Blog Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {BLOG_POSTS.map((post) => (
+                    {FEATURED_BLOGS.map((post) => (
                         <article key={post.id} className="bg-white rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all group flex flex-col">
-                            <div className="relative h-60 overflow-hidden">
+                            <div className="relative h-64 overflow-hidden">
                                 <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                                     {post.category}
                                 </div>
@@ -73,35 +67,37 @@ export default function BlogPage() {
                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                             </div>
-                            <div className="p-6 flex flex-col flex-grow">
+                            <div className="p-8 flex flex-col flex-grow">
                                 <div className="flex items-center gap-4 text-xs font-medium text-muted mb-4">
                                     <div className="flex items-center gap-1.5">
-                                        <Calendar size={14} />
+                                        <Calendar size={14} className="text-primary" />
                                         {post.date}
                                     </div>
                                     <div className="flex items-center gap-1.5">
-                                        <User size={14} />
+                                        <User size={14} className="text-primary" />
                                         {post.author}
                                     </div>
                                 </div>
-                                <h2 className="text-xl font-heading font-bold text-secondary mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                <h4 className="text-xl font-heading font-bold text-secondary mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                                     <Link href={`/blog/${post.id}`}>
                                         {post.title}
                                     </Link>
-                                </h2>
-                                <p className="text-muted text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                                </h4>
+                                <p className="text-muted text-sm leading-relaxed mb-6 line-clamp-3">
                                     {post.excerpt}
                                 </p>
-                                <Link href={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-hover transition-colors text-sm uppercase tracking-wide">
-                                    Read Article
+                                <Link
+                                    href={`/blog/${post.id}`}
+                                    className="mt-auto inline-flex items-center gap-2 text-secondary font-bold hover:text-primary transition-colors text-sm uppercase tracking-wide"
+                                >
+                                    Read Full Story
                                     <ArrowRight size={16} />
                                 </Link>
                             </div>
                         </article>
                     ))}
                 </div>
-
             </div>
-        </div>
+        </section>
     );
 }

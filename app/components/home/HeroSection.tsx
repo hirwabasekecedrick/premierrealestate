@@ -8,22 +8,22 @@ const HERO_CONTENT = [
     {
         title: "Welcome to Kigali",
         subtitle: "Premier Real Estate Services is a boutique real estate firm in Kigali Rwanda specializing in residential and commercial rentals and sales.",
-        bgImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
+        bgImage: "/assets/kigali_convention_centre_cover.jpeg"
     },
     {
         title: "Residences",
         subtitle: "Home is more than a place, it’s a feeling.",
-        bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        bgImage: "/assets/m_plaza.jpg"
     },
     {
         title: "Office Spaces",
         subtitle: "Others see windows, we see opportunities.",
-        bgImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+        bgImage: "/assets/warehouse.webp"
     },
     {
         title: "Industrial Spots",
         subtitle: "Maximize your property potential",
-        bgImage: "https://images.unsplash.com/photo-1580982337632-15f5cbeb6e1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        bgImage: "/assets/penthouse.jpg"
     }
 ];
 
@@ -140,12 +140,12 @@ export function HeroSection() {
                                 <label className="block text-sm font-medium text-muted mb-1 ml-1">Price Range</label>
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <DollarSign size={18} className="text-muted" />
+                                        <span className="text-muted text-sm px-2">FRW</span>
                                     </div>
                                     <select
                                         value={priceRange}
                                         onChange={(e) => setPriceRange(e.target.value)}
-                                        className="w-full pl-10 pr-3 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white cursor-pointer"
+                                        className="w-full ml-0 pl-14 pr-3 py-3 border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white cursor-pointer"
                                     >
                                         <option>Any Price</option>
                                         <option>FRW 100k - FRW 300k</option>
