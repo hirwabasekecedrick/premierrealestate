@@ -42,7 +42,7 @@ export function HeroSection() {
                 <Navbar isEmbedded={true} />
 
                 {/* Hero Content */}
-                <div className="w-full max-w-400 mx-auto flex-1 flex flex-col justify-center mb-0 lg:-mb-40 px-6 lg:px-8 py-20 lg:py-0">
+                <div className="w-full max-w-400 mx-auto flex-1 flex flex-col justify-center mb-0 lg:-mb-30 px-6 lg:px-8 py-20 lg:py-0">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
                         {/* Left Side: Headline */}
                         <div className="lg:col-span-7 xl:col-span-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
